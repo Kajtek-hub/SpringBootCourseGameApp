@@ -1,4 +1,4 @@
-package com.kajtek.learn_spring_framework;
+package com.kajtek.learn_spring_framework.helloworld;
 
 import java.util.Arrays;
 
