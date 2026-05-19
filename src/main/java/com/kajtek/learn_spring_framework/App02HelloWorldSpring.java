@@ -1,5 +1,7 @@
 package com.kajtek.learn_spring_framework;
 
+import java.util.Arrays;
+
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 
@@ -23,6 +25,8 @@ public class App02HelloWorldSpring {
 		System.out.println(context.getBean("person3Parameters"));
 		System.out.println(context.getBean("address2"));
 		//System.out.println(context.getBean(Address.class));
+		
+		Arrays.stream(context.getBeanDefinitionNames()).forEach(System.out::println);
 	}
 
 }
