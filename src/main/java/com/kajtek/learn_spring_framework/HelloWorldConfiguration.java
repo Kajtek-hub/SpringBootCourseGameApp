@@ -4,7 +4,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 record Person (String name, int age) {};
-record Adress (String firstLine, String City) {};
+record Address (String firstLine, String city) {};
 
 @Configuration
 public class HelloWorldConfiguration {
@@ -25,9 +25,9 @@ public class HelloWorldConfiguration {
 		//person.name(); person.age();
 	}
 	
-	@Bean
-	public Adress address() {
-		return new Adress("Salma street","Divinty's Reach");
+	@Bean (name = "address2")
+	public Address address() {
+		return new Address("Salma street","Divinty's Reach");
 		
 	}
 }
