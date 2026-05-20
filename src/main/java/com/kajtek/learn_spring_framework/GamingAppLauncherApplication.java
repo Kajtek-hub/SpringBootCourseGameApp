@@ -15,21 +15,11 @@ import com.kajtek.learn_spring_framework.game.PacmanGame;
 
 @Configuration
 @ComponentScan("com.kajtek.learn_spring_framework.game")
-public class App03GamingSpringBeans {
-	
-
-	
-	@Bean
-	public GameRunner gameRunner(GamingConsole game) {
-		System.out.println("Parameter: "+ game);
-		var gameRunner = new GameRunner(game);
-		return gameRunner;
-		}
-	
+public class GamingAppLauncherApplication {
 
 	public static void main(String[] args) {
 
-		try(var context = new AnnotationConfigApplicationContext(App03GamingSpringBeans.class)){
+		try(var context = new AnnotationConfigApplicationContext(GamingAppLauncherApplication.class)){
 			context.getBean(GamingConsole.class).up();
 			context.getBean(GameRunner.class).run();
 		}
