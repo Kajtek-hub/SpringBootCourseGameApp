@@ -2,6 +2,7 @@ package com.kajtek.learn_spring_framework;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 import com.kajtek.learn_spring_framework.game.GameRunner;
@@ -13,16 +14,14 @@ import com.kajtek.learn_spring_framework.game.PacmanGame;
 
 
 @Configuration
+@ComponentScan("com.kajtek.learn_spring_framework.game")
 public class App03GamingSpringBeans {
 	
-	@Bean
-	public GamingConsole game() {
-		var game = new PacmanGame();
-		return game;
-	}
+
 	
 	@Bean
 	public GameRunner gameRunner(GamingConsole game) {
+		System.out.println("Parameter: "+ game);
 		var gameRunner = new GameRunner(game);
 		return gameRunner;
 		}
