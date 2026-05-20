@@ -1,6 +1,8 @@
 package com.kajtek.learn_spring_framework;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 import com.kajtek.learn_spring_framework.game.GameRunner;
 import com.kajtek.learn_spring_framework.game.GamingConsole;
@@ -8,11 +10,27 @@ import com.kajtek.learn_spring_framework.game.MarioGame;
 import com.kajtek.learn_spring_framework.game.SuperContraGame;
 import com.kajtek.learn_spring_framework.game.PacmanGame;
 
+
+
+@Configuration
 public class App03GamingSpringBeans {
+	
+	@Bean
+	public GamingConsole game() {
+		var game = new PacmanGame();
+		return game;
+	}
+	
+	@Bean
+	public GameRunner gameRunner(GamingConsole game) {
+		var gameRunner = new GameRunner(game);
+		return gameRunner;
+		}
+	
 
 	public static void main(String[] args) {
 
-		try(var context = new AnnotationConfigApplicationContext(GamingConfiguration.class)){
+		try(var context = new AnnotationConfigApplicationContext(App03GamingSpringBeans.class)){
 			context.getBean(GamingConsole.class).up();
 			context.getBean(GameRunner.class).run();
 		}
