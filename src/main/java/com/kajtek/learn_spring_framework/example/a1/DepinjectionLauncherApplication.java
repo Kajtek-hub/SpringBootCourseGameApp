@@ -14,8 +14,10 @@ import org.springframework.stereotype.Component;
 @Component
 class YourBusinessClass{
 	
-	
+//	@Autowired
 	Dependency1 dependency1;
+	
+//	@Autowired
 	Dependency2 dependency2;
 	
 	// Nie jest wymagane @Autowired
